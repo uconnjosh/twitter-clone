@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'paperclip'
 gem 'friendly_id'
+gem 'bcrypt-ruby'
 gem 'bcrypt'
 gem 'less-rails-bootstrap'
 gem 'therubyracer'
@@ -25,9 +26,11 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem "letter_opener"
 end
 
 group :test do
   gem 'minitest'
   gem 'shoulda-matchers'
+
 end
