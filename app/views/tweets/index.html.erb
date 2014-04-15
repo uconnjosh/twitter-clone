@@ -11,13 +11,11 @@
   <%= f.submit(:class => "btn btn-danger") %>
 <% end %>
 <br />
-<h3>Search by handle:</h3>
+<h3>Select a Follower:</h3>
    <%= form_for @follow, :html => { :multipart => true } do |f| %>
-     <% @users.all.each do |user| %>
-       <%= f.label :user_id, "#{user.handle}" %>
-       <%= f.check_box :user_id %>
+    <%= f.label :stalk_id %>
+    <%= f.collection_select(:stalk_id, @users, :id, :handle) %>
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
-    <% end %>
     <br />
     <br />
     <%= f.submit(:class => "btn btn-success") %>
@@ -31,12 +29,22 @@
 
 
 <div class="indentmessage">
-  <h3>Your friends have been tweeting:</h3>
+
 <br />
 <ul class="unstyled">
-  <% @tweets.all.each do |tweet| %>
-    <li class="tweets"><%= tweet.user.handle %>, said: &nbsp; &nbsp;  <%= tweet.name %> at &nbsp; <%= tweet.created_at %></li>
+  <h2>You are following:</h2>
+  <ul>
+  <% current_user.follows.each do |follow| %>
+  <li><%= follow.find_handle %></li>
   <% end %>
+  <ul>
+<h3>Here's what they're saying:</h3>
+  <% current_user.follows.each do |follow| %>
+    <% follow.find_tweets.each do |tweet| %>
+      <li class="tweets"><%= tweet.user.handle %>, said: &nbsp; &nbsp;  <%= tweet.name %> at &nbsp; <%= tweet.created_at %></li>
+    <% end %>
+  <% end %>
+
 </ul>
 
 
