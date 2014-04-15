@@ -155,6 +155,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    textacular (3.2.0)
+      activerecord (>= 3.0, < 4.2)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -199,6 +201,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   shoulda-matchers
+  textacular
   therubyracer
   turbolinks
   uglifier

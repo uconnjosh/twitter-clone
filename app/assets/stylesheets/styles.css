@@ -1,3 +1,31 @@
-.indent {
-  margin-right: 50%%;
+.indentHeader {
+  margin-left: 32%;
 }
+ul.unstyled {
+  list-style-type: none;
+}
+
+li.tweets {
+  margin: 5px;
+}
+img#bird {
+  display: inline;
+  width: 200px;
+  height: auto;
+}
+
+.signin {
+  float: right;
+  margin-right: 30%;
+}
+
+.list {
+  float: left;
+
+}
+
+.indentmessage {
+  margin-left: 15%;
+}
+
+

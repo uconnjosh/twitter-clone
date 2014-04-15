@@ -1,0 +1,42 @@
+<h1><%= current_user.greeting %>, &nbsp; <%= current_user.handle %></h1>
+<br />
+<br />
+
+<%= form_for @tweet, :html => { :multipart => true } do |f| %>
+  <%= f.label :name, "160 Characters, max!" %>
+  <%= f.text_field :name %>
+ &nbsp;
+ &nbsp;
+  <%= f.hidden_field :user_id, :value => session[:user_id] %>
+  <%= f.submit(:class => "btn btn-danger") %>
+<% end %>
+<br />
+<h3>Search by handle:</h3>
+   <%= form_for @follow, :html => { :multipart => true } do |f| %>
+     <% @users.all.each do |user| %>
+       <%= f.label :user_id, "#{user.handle}" %>
+       <%= f.check_box :user_id %>
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
+    <% end %>
+    <br />
+    <br />
+    <%= f.submit(:class => "btn btn-success") %>
+  <% end %>
+
+    &nbsp;
+    &nbsp;
+
+
+
+
+
+<div class="indentmessage">
+  <h3>Your friends have been tweeting:</h3>
+<br />
+<ul class="unstyled">
+  <% @tweets.all.each do |tweet| %>
+    <li class="tweets"><%= tweet.user.handle %>, said: &nbsp; &nbsp;  <%= tweet.name %> at &nbsp; <%= tweet.created_at %></li>
+  <% end %>
+</ul>
+
+

@@ -1,8 +1,14 @@
 class TweetsController < ApplicationController
    def index
+    @tweets = Tweet.all
+    @tweet = Tweet.new
+    @follow = Follow.new
+    @users = User.all
    end
- def create
-    @tweet = Tweet.create
+
+   def create
+    @tweet = Tweet.create(tweet_params)
+    redirect_to index
   end
 
   def new

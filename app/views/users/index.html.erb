@@ -1,6 +1,35 @@
 <h1>Welcome to PDX Twitter</h1>
-<h7>Put a bird on it!!!</h7>
+<div class="indentHeader">
+  <img id="bird" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS3AIZs5sNDXRKfV2-qga4ReXTyTRfAsWafPeEbe8pgZhbCwY3B" />
+</div>
+<br />
+<br />
+<%= link_to "Sign Up!!!", new_user_path, :class => 'btn btn-success' %>
+<br />
+<br />
+<div class="list"
+<ul class="unstyled">
+  <% @users.all.each do |user| %>
+    <li><%= user.handle %></li>
+  <% end %>
+</ul>
+</div>
+<div class="signin well">
+<h4> Sign In: </h4>
+  <%= form_tag sessions_path do %>
+  <div class="field">
+          <%= label_tag :email %><br />
+          <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="field">
+          <%= label_tag :password %><br />
+          <%= password_field_tag :password %>
+  </div>
+  <br />
+  <br />
+  <div class="actions"><%= submit_tag "Log In" %>
+  <% end %>
 
-<br />
-<br />
-<%= link_to "Sign Up!!!", new_user_path %>
+  </div>
+
+

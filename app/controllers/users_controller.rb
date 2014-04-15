@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -6,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      UserMailer.signup_confirmation(@user).deliver
+      # UserMailer.signup_confirmation(@user).deliver
       redirect_to root_url, notice: "Thank you for signing up!"
     else
       render "new"
