@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   end
 
   def greeting
-    if Time.now.hour > 12
+    if Time.now.hour >= 17
+      return "Good Evening"
+    Time.now.hour > 12
       return "Good Afternoon"
     else
       return "Good Morning"

@@ -1,4 +1,4 @@
-<h1><%= current_user.greeting %>, &nbsp; <%= current_user.handle %></h1>
+<h1><%= current_user.greeting %>, &nbsp; <%= current_user.handle %></h1> &nbsp; <%= link_to "Log Out", session_path("current"), method: "delete" %>
 <br />
 <br />
 
@@ -11,7 +11,7 @@
   <%= f.submit(:class => "btn btn-danger") %>
 <% end %>
 <br />
-<h3>Select a Follower:</h3>
+<h3>Add a follower:</h3>
    <%= form_for @follow, :html => { :multipart => true } do |f| %>
     <%= f.label :stalk_id %>
     <%= f.collection_select(:stalk_id, @users, :id, :handle) %>

@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
 
    def create
     @tweet = Tweet.create(tweet_params)
-    redirect_to index
+    redirect_to tweets_path
   end
 
   def new
